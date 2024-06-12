@@ -1,0 +1,3 @@
+GMAIL_USERNAME=aoidhcnsalkjhndsa@gmail.com
+GMAIL_APP_PASSWORD= jdkf sjdk sdkl sjkl
+EMAIL_RECIPIENT=lnasas@gmail.com

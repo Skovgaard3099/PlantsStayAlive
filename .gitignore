@@ -1,0 +1,21 @@
+# Ignore config file with sensitive information
+config.txt
+
+# Ignore Python virtual environment directory
+.venv/
+
+# Ignore PyCharm project files
+.idea/
+
+# Ignore log files
+*.log
+run_log.txt
+
+# Ignore Python bytecode and cache directories
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore system files
+.DS_Store
+Thumbs.db
