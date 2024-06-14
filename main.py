@@ -7,13 +7,24 @@ import datetime
 import logging
 import socket
 
-# Function to load configuration from a file
+
+# Set up logging configuration, handling INFO, WARNING, ERROR, CRITICAL - NOT Debug
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+# Function to load configuration from a file, if empty line or no '=' we will skip that
 def load_config(filename='config.txt'):
     config = {}
     with open(filename, 'r') as file:
         for line in file:
-            key, value = line.strip().split('=')
-            config[key] = value
+            line = line.strip()
+            if not line or '=' not in line:
+                logging.warning(f"Skipping invalid line in config: {line}")
+                continue  # Skip empty lines and lines without '='
+            try:
+                key, value = line.split('=', 1)  # Split on the first '=', max 1 split
+                config[key.strip()] = value.strip() # making sure no space is after key or value
+            except ValueError as e:
+                logging.error(f"Error parsing line in config: {line} - {e}")
     return config
 
 config = load_config()
